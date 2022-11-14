@@ -1,0 +1,7 @@
+<app-product-list
+[productList]="pageResponse.content"
+[totalElements]="pageResponse.totalElements"
+[loadingList]="loadingList"
+(loadProductsEvent)="loadChangedPage($event)"
+(productDeleteEvent)="deleteProduct($event)">
+</app-product-list>

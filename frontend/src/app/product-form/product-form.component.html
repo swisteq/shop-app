@@ -1,0 +1,54 @@
+<!-- <div #ref *ngIf="notification" class="notification">
+  {{notification}}
+</div> -->
+
+<mat-card>
+  <mat-card-title>Products Form</mat-card-title>
+  <mat-card-subtitle>Add new Products</mat-card-subtitle>
+  <mat-card-content class="products-form-content">
+
+    <mat-form-field appearance="legacy">
+      <mat-label>Name:</mat-label>
+      <input type="text" matInput placeholder="Name:" [(ngModel)]="product.title">
+    </mat-form-field>
+
+    <mat-form-field appearance="legacy">
+      <mat-label>Description:</mat-label>
+      <input type="text" matInput placeholder="Name:" [(ngModel)]="product.description">
+    </mat-form-field>
+
+    <mat-form-field appearance="legacy">
+      <mat-label>Price:</mat-label>
+      <input type="text" matInput placeholder="Name:" [(ngModel)]="product.price">
+    </mat-form-field>
+
+    <mat-form-field appearance="legacy">
+      <mat-label>Category:</mat-label>
+      <mat-select [(ngModel)]="product.categoryName">
+        <mat-option *ngFor="let category of categoryList" value={{category.name}}>{{category.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="legacy">
+      <mat-label>Type:</mat-label>
+      <mat-select [(ngModel)]="product.productType">
+        <mat-option value="LIQUID">Liquid</mat-option>
+        <mat-option value="GAS">Gas</mat-option>
+        <mat-option value="SOLID">Solid</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div class="form-button-row">
+      <button class="submit-button" type="button" mat-button mat-raised-button (click)="sendProduct()">
+        Submit
+      </button>
+      <button class="clear-button" type="button" mat-button mat-raised-button color="warn" (click)="clearForm()">
+        Clear
+      </button>
+    </div>
+
+    <mat-card-footer>
+      <!-- <mat-progress-bar *ngIf="sendingProduct" mode="indeterminate"></mat-progress-bar> -->
+    </mat-card-footer>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,43 @@
+<div #ref *ngIf="notification" class="notification">
+  {{notification}}
+</div>
+
+<mat-card>
+  <mat-card-title>Registration Form</mat-card-title>
+  <mat-card-subtitle>Register new account</mat-card-subtitle>
+  <mat-card-content class="registration-form-content">
+
+    <mat-form-field appearance="legacy">
+      <mat-label>Username:</mat-label>
+      <input type="text" matInput placeholder="Name:" [(ngModel)]="createUserRequest.login">
+    </mat-form-field>
+
+    <mat-form-field appearance="legacy">
+      <mat-label>Password:</mat-label>
+      <input type="password" matInput placeholder="Password:" [(ngModel)]="createUserRequest.pass">
+    </mat-form-field>
+
+    <mat-form-field appearance="legacy">
+      <mat-label>First name:</mat-label>
+      <input type="text" matInput placeholder="First name:" [(ngModel)]="createUserRequest.name">
+    </mat-form-field>
+
+    <mat-form-field appearance="legacy">
+      <mat-label>Last name:</mat-label>
+      <input type="text" matInput placeholder="Last name:" [(ngModel)]="createUserRequest.surname">
+    </mat-form-field>
+
+    <div class="form-button-row">
+      <button class="submit-button" type="button" mat-button mat-raised-button (click)="registerUser()">
+        Submit
+      </button>
+      <button class="clear-button" type="button" mat-button mat-raised-button color="warn" (click)="clearForm()">
+        Clear
+      </button>
+    </div>
+
+    <mat-card-footer>
+      <mat-progress-bar *ngIf="sendingUser" mode="indeterminate"></mat-progress-bar>
+    </mat-card-footer>
+  </mat-card-content>
+</mat-card>

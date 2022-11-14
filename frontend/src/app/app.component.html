@@ -1,0 +1,53 @@
+<div class="app-container">
+  <!-- HEADER Element -->
+  <header class="app-header mat-elevation-z2">
+    <div class="app-logo">
+      <img class="logo-image" src="../assets/gopher.png" height="48px">
+      <div>
+        <span>Generic Spring Project</span>
+      </div>
+    </div>
+    <nav class="app-nav">
+      <div *ngIf="authService.isLoggedIn()">
+        <button mat-raised-button mat-button (click)="authService.logout()">Logout</button>
+      </div>
+      <div *ngIf="!authService.isLoggedIn()">
+        <button mat-raised-button mat-button [routerLink]="['/login']">Login</button>
+      </div>
+      <div *ngIf="!authService.isLoggedIn()">
+        <button mat-raised-button mat-button [routerLink]="['/register']">Register</button>
+      </div>
+      <div *ngIf="authService.isLoggedIn() && authService.hasRole('ROLE_ADMIN')">
+        <button mat-raised-button mat-button [routerLink]="['/users']">Users</button>
+      </div>
+      <!-- <div>
+        <button mat-raised-button mat-button [routerLink]="['/test']">Test</button>
+      </div> -->
+      <div>
+        <button mat-raised-button mat-button [routerLink]="['/home']">Home</button>
+      </div>
+      <div *ngIf="authService.isLoggedIn()">
+        <button mat-raised-button mat-button [routerLink]="['/basket']">Basket</button>
+      </div>
+      <div *ngIf="authService.isLoggedIn()">
+        <button mat-raised-button mat-button [routerLink]="['/categories']">Categories</button>
+      </div>
+      <div *ngIf="authService.isLoggedIn()">
+        <button mat-raised-button mat-button [routerLink]="['/products']">Products</button>
+      </div>
+      <div *ngIf="authService.isLoggedIn() && authService.hasRole('ROLE_ADMIN')">
+        <button mat-raised-button mat-button [routerLink]="['/product/add']">Add product</button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- MAIN Element -->
+  <main class="app-main mat-elevation-z2">
+    <router-outlet></router-outlet>
+  </main>
+
+  <!-- FOOTER Element -->
+  <footer class="app-footer mat-elevation-z2">
+    Autor: Ja!
+  </footer>
+</div>

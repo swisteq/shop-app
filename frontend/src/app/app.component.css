@@ -1,0 +1,79 @@
+.app-container{
+  width: 80%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+
+  /* Tymczasowe, poglądowe */
+  /* background-color: rgba(250, 0, 0, 0.3); */
+}
+
+.app-header{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+
+  /* Tymczasowe, poglądowe */
+  /* background-color: rgba(0, 250, 0, 0.3); */
+
+  margin-top: 4px;
+  border-radius: 4px 4px 0 0;
+  background-color: var(--color-page-header);
+}
+
+/* Logo jest z lewej strony */
+.app-logo {
+  display: flex;
+  flex-direction: row;
+}
+
+.app-logo div span{
+  vertical-align:middle;
+  line-height: 64px;
+}
+
+.logo-image{
+  margin:8px;
+}
+
+/* Logo jest z prawej strony */
+.app-nav {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.app-nav div {
+  min-width: 110px;
+  margin: 12px 4px;
+}
+
+.app-nav div button{
+  width: 100%;
+  height: 100%;
+}
+
+.app-main{
+  /* width: 100%; */
+  /* padding-top:24px; */
+  /* padding-bottom:24px; */
+
+  padding: 24px 12px;
+
+  /* Tymczasowe, poglądowe */
+  /* background-color: rgba(0, 0, 250, 0.3); */
+
+  background-color: var(--color-main);
+}
+
+.app-footer{
+  width: 100%;
+  margin-bottom: 4px;
+  border-radius: 0 0 4px 4px;
+  background-color: var(--color-level-3);
+}
+
+.error-snackbar{
+  background-color: crimson;
+  color: white;
+}

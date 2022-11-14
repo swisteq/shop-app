@@ -1,0 +1,49 @@
+.product-table{
+  width: 100%;
+  border: 1px solid white;
+  border-radius: 2px;
+}
+
+.mat-column-identifier{
+  min-width: 16px;
+}
+
+.mat-column-title{
+  min-width: 48px;
+}
+
+.mat-column-category{
+  min-width: 48px;
+}
+
+.mat-column-description{
+  min-width: 128px;
+}
+
+.mat-column-price{
+  min-width: 64px;
+}
+
+.mat-column-productType{
+  min-width: 48px;
+}
+
+.mat-column-delete-button {
+  min-width: 24px;
+}
+
+.mat-column-edit-button {
+  min-width: 24px;
+}
+
+.record-delete-button {
+  border-radius: 16px;
+}
+
+mat-card-footer {
+  padding-top:10px;
+}
+
+.mat-paginator{
+  margin-top: 8px;
+}

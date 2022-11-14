@@ -1,0 +1,95 @@
+.product-details-container{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-overview-row{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.product-overview{
+  margin: 4px;
+  flex-grow: 1;
+  width: 50%;
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.product-action{
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  width: 50%;
+  margin: 4px;
+  height: inherit;
+}
+
+.product-auction-info-row{
+  margin: 4px;
+}
+
+.product-offers-row{
+  margin: 4px;
+}
+
+.product-overview-content{
+  display: flex;
+  flex-direction: column;
+}
+
+.product-overview-content div {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 0.5px solid rgba(255,255,255,0.1);
+}
+
+.product-overview-content div:hover {
+  background-color: rgba(255,255,255,0.1);
+  border-bottom: 0.5px solid rgba(255,0,0,0.3);
+}
+
+.product-overview-content div div {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.product-action-content{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+}
+
+.product-admin-actions{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.product-user-actions{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.action-button{
+  width: 90%;
+  margin: 2px auto;
+}
+
+mat-card {
+  height: inherit;
+  flex-grow: 1;
+}
+
+.edit-form {
+  margin-top: 20px;
+}

@@ -1,0 +1,37 @@
+<mat-card>
+  <mat-card-title>Categories</mat-card-title>
+  <div class="subtitle">Add new Category:</div>
+  <mat-card-content class="category-form-content">
+
+    <div class="form-button-row">
+      <mat-form-field appearance="legacy">
+        <mat-label>Name:</mat-label>
+        <input type="text" matInput placeholder="Name:" [(ngModel)]="category.name">
+      </mat-form-field>
+
+      <button class="submit-button" type="button" mat-button mat-raised-button (click)="sendCategory()">
+        Submit
+      </button>
+      <button class="clear-button" type="button" mat-button mat-raised-button color="warn" (click)="clearForm()">
+        Clear
+      </button>
+    </div>
+
+
+    <div class="subtitle">List of categories:</div>
+    <table mat-table [dataSource]="categoryList" class="mat-elevation-z2 product-table">
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Name</th>
+        <td mat-cell *matCellDef="let category">{{category.name}}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+
+    <mat-card-footer>
+      <!-- <mat-progress-bar *ngIf="sendingProduct" mode="indeterminate"></mat-progress-bar> -->
+    </mat-card-footer>
+  </mat-card-content>
+</mat-card>

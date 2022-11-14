@@ -1,0 +1,72 @@
+<div class="product-details-container">
+  <div class="product-overview-row">
+    <div class="product-overview">
+      <mat-card>
+        <mat-card-title>Product overview</mat-card-title>
+        <mat-card-subtitle>Overview product informations</mat-card-subtitle>
+        <mat-card-content class="product-overview-content">
+          <div class="product-title">
+            <div>Title:</div>
+            <div>{{productDetails.title}}</div>
+          </div>
+          <div class="product-category">
+            <div>Category:</div>
+            <div>{{productDetails.categoryName}}</div>
+          </div>
+          <div class="product-description">
+            <div>Description:</div>
+            <div>{{productDetails.description}}</div>
+          </div>
+          <div class="product-price">
+            <div>Price:</div>
+            <div>{{productDetails.price}}</div>
+          </div>
+          <div class="product-productType">
+            <div>Product type:</div>
+            <div>{{productDetails.productType}}</div>
+          </div>
+
+          <div class="edit-form">
+            <mat-form-field appearance="legacy">
+              <mat-label>Name:</mat-label>
+              <input type="text" matInput placeholder="Name:" [(ngModel)]="productEdit.title">
+            </mat-form-field>
+
+            <mat-form-field appearance="legacy">
+              <mat-label>Description:</mat-label>
+              <input type="text" matInput placeholder="Name:" [(ngModel)]="productEdit.description">
+            </mat-form-field>
+
+            <mat-form-field appearance="legacy">
+              <mat-label>Price:</mat-label>
+              <input type="text" matInput placeholder="Name:" [(ngModel)]="productEdit.price">
+            </mat-form-field>
+
+            <mat-form-field appearance="legacy">
+              <mat-label>Category name:</mat-label>
+              <input type="text" matInput placeholder="Name:" [(ngModel)]="productEdit.categoryName">
+            </mat-form-field>
+
+            <mat-form-field appearance="legacy">
+              <mat-label>Type:</mat-label>
+              <mat-select [(ngModel)]="productEdit.productType">
+                <mat-option value="LIQUID">Liquid</mat-option>
+                <mat-option value="GAS">Gas</mat-option>
+                <mat-option value="SOLID">Solid</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <div class="form-button-row">
+            <button class="submit-button" type="button" mat-button mat-raised-button color="primary" (click)="sendEditedProduct()">
+              Submit
+            </button>
+            <button class="clear-button" type="button" mat-button mat-raised-button color="warn" (click)="clearForm()">
+              Clear
+            </button>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

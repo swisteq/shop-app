@@ -1,0 +1,31 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+:root {
+  --color-html-background: #EEEEEE;   /* color level 1*/
+  --color-level-2: #DDDDDD;
+  --color-level-3: #cccccc;
+  --color-main: #bbbbbb;              /* color level 4*/
+  --color-level-5: #aaaaaa;
+  --color-page-header: #9b9b9b;       /* color level 6*/
+  --color-level-7: #8d8d8d;
+  --color-level-8: #808080;
+  --color-level-9: #747474;
+  --color-level-10: #696969;
+  --gopher-color: #66d7e9;
+}
+
+html, body {
+  height: 100%;
+  background-color: var(--color-html-background);
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.error-snackbar{
+  background-color: crimson;
+  color: white;
+}

@@ -1,0 +1,42 @@
+spring:
+  datasource:
+    username: root
+    password: siege1
+    url: jdbc:mysql://localhost/shop_app?serverTimezone=Europe/Warsaw&createDatabaseIfNotExist=true
+  jpa:
+    hibernate:
+      ddl-auto: update
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+#spring:
+#  datasource:
+#    username: admin
+#    password:
+#    url: jdbc:h2:mem:shopdb
+#    driverClassName: org.h2.Driver
+#  h2:
+#    console:
+#      enabled: true
+#  jpa:
+#    database-platform: org.hibernate.dialect.H2dialect
+#    show-sql: true
+#  mvc:
+#    pathmatch:
+#      matching-strategy: ant_path_matcher
+
+application:
+  default:
+    newUserRole: ROLE_USER
+    roles:
+      - ROLE_ADMIN
+      - ROLE_USER
+      - ROLE_MODERATOR
+    users:
+      - username: admin
+        password: nimda
+        roles: ROLE_ADMIN,ROLE_USER,ROLE_MODERATOR
+      - username: user
+        password: user
+        roles: ROLE_USER
