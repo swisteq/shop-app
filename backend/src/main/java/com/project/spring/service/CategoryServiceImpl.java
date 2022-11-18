@@ -21,9 +21,13 @@ public class CategoryServiceImpl implements CategoryService{
 
     @Override
     public CategoryDTO addCategory(CategoryDTO categoryDTO) {
-        Category category = categoryMapper.mapCategoryDTOToCategory(categoryDTO);
+        if (categoryRepository.findByName(categoryDTO.getName()) != null) {
+            throw new IllegalArgumentException("Category with this name already exists!");
+        } else {
+            Category category = categoryMapper.mapCategoryDTOToCategory(categoryDTO);
 
-        return categoryMapper.mapCategoryToDTO(categoryRepository.save(category));
+            return categoryMapper.mapCategoryToDTO(categoryRepository.save(category));
+        }
     }
 
     @Override

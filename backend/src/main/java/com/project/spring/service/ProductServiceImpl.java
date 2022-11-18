@@ -41,15 +41,19 @@ public class ProductServiceImpl implements ProductService{
     private final ProductMapper productMapper;
 
     @Override
-    public ProductDTO addProduct(ProductDTO productDTO, Long userId) { //TODO validation
+    public ProductDTO addProduct(ProductDTO productDTO, Long userId) {
         ApplicationUser author = applicationUserRepository.findById(userId)
-                .orElseThrow(EntityNotFoundException::new);
+                .orElseThrow(() -> new EntityNotFoundException("User does not exist!"));
 
-        Category productCategory = categoryRepository.findByName(productDTO.getCategoryName());
+        if(productRepository.findByTitle(productDTO.getTitle()) != null){
+            throw new IllegalArgumentException("Product with this title already exists!");
+        } else {
+            Category productCategory = categoryRepository.findByName(productDTO.getCategoryName());
 
-        Product product = productMapper.mapCreateProductRequestToProduct(productCategory, productDTO, author);
+            Product product = productMapper.mapCreateProductRequestToProduct(productCategory, productDTO, author);
 
-        return productMapper.mapProductToDTO(productRepository.save(product));
+            return productMapper.mapProductToDTO(productRepository.save(product));
+        }
     }
 
     @Override
@@ -65,7 +69,7 @@ public class ProductServiceImpl implements ProductService{
     @Override
     public ProductDTO getProductDetails(Long productId) {
         Product product = productRepository.findById(productId)
-                .orElseThrow(EntityNotFoundException::new);
+                .orElseThrow(() -> new EntityNotFoundException("Can't get details of not existing product"));
         return productMapper.mapProductToDTO(product);
     }
 

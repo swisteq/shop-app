@@ -11,9 +11,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Slf4j
 @CrossOrigin
@@ -28,6 +33,7 @@ public class ProductController {
 
     @PostMapping("/{id}")
     public ProductDTO addProduct(
+            @Valid
             @RequestBody ProductDTO productDTO,
             @PathVariable(name = "id") Long userId,
             UsernamePasswordAuthenticationToken principal) {
@@ -64,5 +70,17 @@ public class ProductController {
             @RequestBody ProductDTO productDTO,
             @PathVariable(name = "id") Long productId) {
         return productService.modifyProduct(productId, productDTO);
+    }
+
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<Object> handleValidationExceptions(
+            MethodArgumentNotValidException ex) {
+        Map<String, String> errors = new HashMap<>();
+        ex.getBindingResult().getAllErrors().forEach((error) -> {
+            String fieldName = ((FieldError) error).getField();
+            String errorMessage = error.getDefaultMessage();
+            errors.put(fieldName, errorMessage);
+        });
+        return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
     }
 }

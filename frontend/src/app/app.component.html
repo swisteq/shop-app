@@ -17,18 +17,18 @@
       <div *ngIf="!authService.isLoggedIn()">
         <button mat-raised-button mat-button [routerLink]="['/register']">Register</button>
       </div>
-      <div *ngIf="authService.isLoggedIn() && authService.hasRole('ROLE_ADMIN')">
+      <!-- <div *ngIf="authService.isLoggedIn() && authService.hasRole('ROLE_ADMIN')">
         <button mat-raised-button mat-button [routerLink]="['/users']">Users</button>
-      </div>
+      </div> -->
       <!-- <div>
         <button mat-raised-button mat-button [routerLink]="['/test']">Test</button>
       </div> -->
       <div>
         <button mat-raised-button mat-button [routerLink]="['/home']">Home</button>
       </div>
-      <div *ngIf="authService.isLoggedIn()">
+      <!-- <div *ngIf="authService.isLoggedIn()">
         <button mat-raised-button mat-button [routerLink]="['/basket']">Basket</button>
-      </div>
+      </div> -->
       <div *ngIf="authService.isLoggedIn()">
         <button mat-raised-button mat-button [routerLink]="['/categories']">Categories</button>
       </div>
